@@ -1,13 +1,14 @@
-FROM node:latest
+# FROM node:20.8.0-alpine
+FROM node:20.8.0
+
+
 
 WORKDIR /app
 
-# COPY package*.json ./
-COPY . .
-
-#RUN npm -i -g @nestjs/cli
+COPY package*.json ./
 
 RUN npm install
-# COPY . .
+
+COPY . .
 
 RUN npm run build
