@@ -11,7 +11,6 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-      - /app/dist
     command: bash -c "npm run start:debug"
 
   # mysql:
