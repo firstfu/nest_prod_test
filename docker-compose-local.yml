@@ -5,7 +5,7 @@ services:
       context: .
     container_name: nest_prod_test
     ports:
-      - 3001:3001
+      - 3001:3000
       - 9229:9229
     restart: always
     volumes:
