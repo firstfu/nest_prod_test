@@ -1,0 +1,33 @@
+version: '3.6'
+services:
+  web:
+    build:
+      context: .
+    container_name: nest_prod_test
+    ports:
+      - 3001:3001
+      - 9229:9229
+    restart: always
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/dist
+    command: bash -c "npm run start:debug"
+
+  # mysql:
+  #   image: mysql:latest
+  #   container_name: mysql
+  #   restart: always
+  #   command:
+  #     - '--character-set-server=utf8mb4'
+  #     - '--collation-server=utf8mb4_unicode_ci'
+  #     - '--default-authentication-plugin=mysql_native_password'
+  #     - '--event_scheduler=ON'
+  #   ports:
+  #     - 3336:3306
+  #   volumes:
+  #     - ./mysqldb/init:/docker-entrypoint-initdb.d
+  #     - ./mysqldb/data:/var/lib/mysql
+  #     - ./mysqldb/backup:/backup
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ladolcevita2023
